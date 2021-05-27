@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Home Security</title>
+	
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+	<div class="topnav">
+		<a class="active" href="dashboard.html">Dashboard</a>
+		<a href="data.html">Historic data</a>
+		<a href="graphs.html">Graphs</a>
+	</div>
+	
+	<h1>Dashboard</h1>
+	
+	<div class="row">
+		<div class="containerTab yellow" >
+			<div class="card"> 
+				<h3>Current </h3>
+				<h3>Reading:</h3>
+			</div>	
+		</div>
+		
+			<div class="containerTab">
+				<div class="card"> 
+					<h3> Average</h3>
+					<h3>(Alerts):</h3>
+				</div>
+			</div>
+		
+			<div class=" containerTab">
+				<div class="card"> 
+					<h3> LED</h3>
+					<h3>State:</h3>
+				</div>
+			</div>
+	</div>
+	
+	<h2> Manual Control</h2>
+		{% for pin in pins %} 
+			<h2>LED Light
+			{% if pins[pin].state == 1 %}
+				is currently <strong>on</strong></h2>
+				<div class="row"><div class="col-md-2">
+				<a href="/{{pin}}/off" class="btn btn-block btn-lg btn-default" role="button">Turn off</a> 
+				</div></div>
+			{% else %}
+				is currently <strong>off</strong></h2>
+				<div class="row"><div class="col-md-2">
+				<a href="/{{pin}}/on" class="btn btn-block btn-lg btn-primary" role="button">Turn on</a> 
+				</div></div>
+			{% endif %}
+		{% endfor %}
+	
+</body>
+</html>
