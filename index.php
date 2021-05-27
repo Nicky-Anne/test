@@ -1,5 +1,5 @@
 <?php
 
-include_once("dashboard.html");
+include_once("index.html");
 
 ?>
